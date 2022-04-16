@@ -28,7 +28,6 @@ module.exports = {
   },
   externals: {
     puppeteer: 'puppeteer',
-    'factory.ts': 'factory.ts',
     '@pact-foundation/pact': '@pact-foundation/pact',
   },
   plugins: [

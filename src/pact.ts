@@ -4,7 +4,6 @@ import {
   ResponseOptions,
   Matchers,
 } from "@pact-foundation/pact";
-import { Factory } from "factory.ts";
 import { MetaAPIRequest, APIRequestInput, APIRequestOutput, MetaAPIRequests, MetaAPIService } from ".";
 
 /** Pact matcher object */
@@ -162,10 +161,8 @@ const getMatcherValue = <T>(matcher: InteractionInput<T>): T => {
 export const setupInteractionBuilders = <API extends MetaAPIRequests>(
   service: MetaAPIService<API>,
   options?: {
-    /** List of factories used within the mocks.
-     * Will be reset after each request to keep data consistent.
-     */
-    factories?: Factory<any>[];
+    /** A function to reset your environment after an interaction was generated. For example resetting your data factories to generate consistent data */
+    resetEnv?: VoidFunction;
   }
 ) => {
   const builders = Object.keys(service.meta).reduce(
@@ -179,7 +176,7 @@ export const setupInteractionBuilders = <API extends MetaAPIRequests>(
         const { state, uponReceiving, request, response } = interactionOptions;
         const input = getMatcherValue(interactionOptions.input);
         const output = await mock(input);
-        options?.factories?.forEach((factory) => factory.resetSequenceNumber());
+        options?.resetEnv?.();
         return {
           input,
           output,
