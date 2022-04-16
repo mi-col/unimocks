@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "declaration": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "types": [
+      "puppeteer",
+    ],
+    "outDir": "./dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
