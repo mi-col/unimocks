@@ -1,13 +1,19 @@
 {
   "name": "unimocks",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Tying together all mocks from contract tests to API-less development",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "pub": "copyfiles LICENSE README.md package.json dist && cd ./dist && npm publish"
   },
+  "keywords": ["mocks"],
   "author": "micolesnic@gmail.com",
+  "homepage": "https://github.com/mic-c/unimocks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mic-c/unimocks"
+  },
   "license": "ISC",
   "peerDependencies": {
     "@pact-foundation/pact": "^9.17.3",
