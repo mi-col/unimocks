@@ -1,5 +1,5 @@
 /** API Request function */
-export type APIRequest<Output, Input = any> = (input: Input) => Promise<Output>;
+export type APIRequest<Output = void, Input = void> = (input: Input) => Promise<Output>;
 /** API Request Input extractor conditional type */
 export type APIRequestInput<Request extends APIRequest<any, any>> =
   Request extends APIRequest<any, infer Input> ? Input : never;

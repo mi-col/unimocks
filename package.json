@@ -1,6 +1,6 @@
 {
   "name": "unimocks",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Tying together all mocks from contract tests to API-less development",
   "main": "index.js",
   "scripts": {
